@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitaloka — Design Tokens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens/pitaloka-web.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <h1 id="meta-name">Pitaloka</h1>
+      <p><span id="meta-version">v1.0.0</span> · design tokens</p>
+    </div>
+    <nav class="nav">
+      <div class="nav-section">Foundations</div>
+      <a href="#overview"><span class="tile" style="background:var(--pit-tile-blue)"></span>Overview</a>
+      <a href="#color"><span class="tile" style="background:var(--pit-tile-pink)"></span>Color</a>
+      <a href="#type"><span class="tile" style="background:var(--pit-tile-orange)"></span>Typography</a>
+      <div class="nav-section">Shape &amp; space</div>
+      <a href="#radius"><span class="tile" style="background:var(--pit-tile-purple)"></span>Radius</a>
+      <a href="#space"><span class="tile" style="background:var(--pit-tile-green)"></span>Spacing</a>
+      <a href="#metric"><span class="tile" style="background:var(--pit-tile-indigo)"></span>Metrics</a>
+      <a href="#elevation"><span class="tile" style="background:var(--pit-tile-cyan)"></span>Elevation</a>
+      <div class="nav-section">Behaviour</div>
+      <a href="#state"><span class="tile" style="background:var(--pit-tile-red)"></span>States</a>
+      <a href="#usage"><span class="tile" style="background:var(--pit-tile-gray)"></span>Usage</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <div class="where" id="where">Overview</div>
+      <div class="segmented" role="group" aria-label="Theme">
+        <button data-theme="light" aria-pressed="true">Light</button>
+        <button data-theme="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+
+    <section id="overview">
+      <div class="hero">
+        <div class="kicker">DESIGN TOKENS</div>
+        <h2>One source of truth for GTK 4 and Qt 6.</h2>
+        <p id="meta-desc"></p>
+        <div class="stats">
+          <div><b id="stat-tokens">0</b><span>tokens</span></div>
+          <div><b id="stat-colors">0</b><span>colors × 2 themes</span></div>
+          <div><b>4</b><span>generated targets</span></div>
+        </div>
+        <div class="downloads">
+          <a class="chip" href="tokens/tokens.json" download>tokens.json</a>
+          <a class="chip" href="tokens/pitaloka-web.css" download>pitaloka-web.css</a>
+          <a class="chip" href="tokens/pitaloka.css" download>pitaloka.css · GTK</a>
+          <a class="chip" href="tokens/pitaloka.qss" download>pitaloka.qss · Qt</a>
+          <a class="chip" href="tokens/pitaloka.h" download>pitaloka.h</a>
+        </div>
+        <div class="banner" style="margin-top:28px">
+          Edit <b>&nbsp;tokens/tokens.json&nbsp;</b> and run <b>&nbsp;python3 build/generate.py&nbsp;</b> — every target below is rewritten, including this page.
+        </div>
+      </div>
+    </section>
+
+    <section id="color">
+      <header>
+        <h3>Color</h3>
+        <p>Every colour carries a light and a dark value. Components reference the token, never the hex — switching the theme resolves the second value. Click a swatch to copy its CSS variable.</p>
+      </header>
+      <div id="colors"></div>
+    </section>
+
+    <section id="type">
+      <header>
+        <h3>Typography</h3>
+        <p>Inter for the interface, JetBrains Mono for values, shortcuts and code. Nine steps cover every surface in both toolkits.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="radius">
+      <header>
+        <h3>Radius</h3>
+        <p>Five radii. Tile, control and card exist as variables in the design file; menu and pill are documented constants used inline.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="space">
+      <header>
+        <h3>Spacing</h3>
+        <p>A 4px rhythm. Anything outside this scale is a bug.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="metric">
+      <header>
+        <h3>Metrics</h3>
+        <p>Fixed sizes that make a GTK window and a Qt window line up pixel for pixel.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="elevation">
+      <header>
+        <h3>Elevation</h3>
+        <p>Three levels. Transient surfaces sit one level above the window and keep the 12px card radius.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="state">
+      <header>
+        <h3>States</h3>
+        <p>Hover and pressed are background shifts, never colour changes. Focus is always a visible accent ring.</p>
+      </header>
+      <div class="card"><div class="rows"></div></div>
+    </section>
+
+    <section id="usage">
+      <header>
+        <h3>Usage</h3>
+        <p>Three consumers, one build step. The generated files are the only thing an app links against.</p>
+      </header>
+      <div class="columns">
+        <div class="code">
+          <header><span>Web · CSS custom properties</span><button class="copy" data-target="web">copy</button></header>
+          <pre id="snippet-web"></pre>
+        </div>
+        <div class="code">
+          <header><span>GTK 4 · libadwaita</span><button class="copy" data-target="gtk">copy</button></header>
+          <pre id="snippet-gtk"></pre>
+        </div>
+        <div class="code">
+          <header><span>Qt 6 · QStyleSheet</span><button class="copy" data-target="qt">copy</button></header>
+          <pre id="snippet-qt"></pre>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Pitaloka design tokens · generated from <code>tokens/tokens.json</code> · see <code>README.md</code> for the full documentation.
+    </footer>
+  </main>
+</div>
+
+<script src="assets/tokens-data.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
