@@ -9,11 +9,25 @@ to copy its variable). **`TOKENS.md`** is the same reference in plain Markdown.
 
 ---
 
+## The site
+
+Three pages, all openable straight from the file system — no build, no server.
+
+| Page | What it holds |
+| --- | --- |
+| `index.html` | **Tokens** — colours (light·dark, click to copy), typography, radius, spacing, metrics, elevation, states, usage snippets |
+| `components.html` | **Components** — the whole library rendered live: switches toggle, sliders drag, pickers select. Each card shows its HTML and the GTK/Qt widget it maps to |
+| `patterns.html` | **Patterns** — four assembled settings windows (Display, Keyboard, Appearance, Dock) plus the interaction-state reference |
+
+Every page shares the Light/Dark switch in the header bar; the choice is remembered in `localStorage`.
+
 ## Folder structure
 
 ```
 bayu-design-token/
-├── index.html              Documentation site (open directly, no server needed)
+├── index.html              Tokens page
+├── components.html         Component gallery (live)
+├── patterns.html           Settings-window patterns (live)
 ├── README.md               This guide
 ├── TOKENS.md               Generated token reference tables
 ├── tokens/
@@ -23,9 +37,15 @@ bayu-design-token/
 │   ├── pitaloka.qss        Qt 6 style sheet
 │   └── pitaloka.h          C constants
 ├── assets/
-│   ├── site.css            Docs page styling (uses the tokens)
-│   ├── site.js             Renders every section from the tokens
-│   └── tokens-data.js      Generated — tokens.json inlined for the page
+│   ├── pitaloka-ui.css     The component library for the web (.pit-* classes)
+│   ├── icons.js            24×24 inline icon set, no dependency
+│   ├── shell.js            Shared theme toggle, clipboard, nav highlight
+│   ├── site.css            Documentation-page styling
+│   ├── site.js             Renders the token sections
+│   ├── components.js       Component gallery data (markup + widget mapping)
+│   ├── gallery.js          Renders the gallery
+│   ├── patterns.js         Builds the window sidebars, wires live controls
+│   └── tokens-data.js      Generated — tokens.json inlined for the pages
 └── build/
     └── generate.py         The build step (Python 3, no dependencies)
 ```
@@ -73,6 +93,36 @@ Every colour carries a `light` and a `dark` value.
 ## Usage
 
 ### Web
+
+Two files: the tokens, then the component classes. Wrap your markup in `.pit`.
+
+```html
+<link rel="stylesheet" href="tokens/pitaloka-web.css">
+<link rel="stylesheet" href="assets/pitaloka-ui.css">
+
+<div class="pit">
+  <div class="pit-card">
+    <div class="pit-row">
+      <span>Natural scrolling</span>
+      <label class="pit-switch"><input type="checkbox" checked><span></span></label>
+    </div>
+    <div class="pit-row">
+      <span>Refresh rate</span>
+      <button class="pit-select">74.99 Hz</button>
+    </div>
+  </div>
+  <button class="pit-btn pit-btn--primary">Connect</button>
+</div>
+```
+
+Class reference: `.pit-btn` (`--primary --secondary --ghost --danger`), `.pit-icon-btn`, `.pit-field`,
+`.pit-search`, `.pit-select`, `.pit-switch`, `.pit-check`, `.pit-radio`, `.pit-slider`, `.pit-progress`,
+`.pit-segmented`, `.pit-tabs`, `.pit-card`, `.pit-row` (`--hover --pressed --focus --disabled`),
+`.pit-tile`, `.pit-sidebar`, `.pit-headerbar`, `.pit-window`, `.pit-menu`, `.pit-dialog`, `.pit-toast`,
+`.pit-tooltip`, `.pit-badge`, `.pit-banner`, `.pit-keycap`, `.pit-option`, `.pit-dot`.
+Open `components.html` to see each one live with its markup.
+
+Raw tokens, if you are styling something the library does not cover:
 
 ```html
 <link rel="stylesheet" href="tokens/pitaloka-web.css">

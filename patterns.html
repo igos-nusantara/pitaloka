@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitaloka — Patterns</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens/pitaloka-web.css">
+<link rel="stylesheet" href="assets/pitaloka-ui.css">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/shell.js"></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand"><h1>Pitaloka</h1><p>v1.0.0 · design system</p></div>
+    <nav class="nav">
+      <div class="nav-section">Pages</div>
+      <a href="index.html" data-page="index.html"><span class="tile" style="background:var(--pit-tile-pink)"></span>Tokens</a>
+      <a href="components.html" data-page="components.html"><span class="tile" style="background:var(--pit-tile-blue)"></span>Components</a>
+      <a href="patterns.html" data-page="patterns.html"><span class="tile" style="background:var(--pit-tile-purple)"></span>Patterns</a>
+      <div class="nav-section">On this page</div>
+      <a href="#display"><span class="tile" style="background:var(--pit-tile-blue)"></span>Display</a>
+      <a href="#keyboard"><span class="tile" style="background:var(--pit-tile-indigo)"></span>Keyboard</a>
+      <a href="#appearance"><span class="tile" style="background:var(--pit-tile-cyan)"></span>Appearance</a>
+      <a href="#dock"><span class="tile" style="background:var(--pit-tile-purple)"></span>Dock</a>
+      <a href="#states"><span class="tile" style="background:var(--pit-tile-red)"></span>States</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <div class="where">Patterns</div>
+      <div class="segmented" role="group" aria-label="Theme">
+        <button data-theme="light">Light</button>
+        <button data-theme="dark">Dark</button>
+      </div>
+    </div>
+
+    <section id="intro">
+      <div class="hero" style="padding-bottom:0">
+        <div class="kicker">PATTERNS</div>
+        <h2>The settings window, assembled.</h2>
+        <p>Sidebar 236px, header bar 48px, content gutter 24px. Groups of rows in cards, a caption above each
+           group, helper text below. Click items in the sidebar — the windows are live.</p>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------ Display -->
+    <section id="display">
+      <header><h3>Display</h3><p>Select rows, a switch and a slider with range captions.</p></header>
+      <figure class="pattern">
+        <div class="pit-window pit" style="height:600px">
+          <div class="pit-window__body" style="height:100%">
+            <aside class="pit-sidebar" data-active="Display"></aside>
+            <div class="pit-window__main">
+              <div class="pit-headerbar">
+                <div class="pit-headerbar__lead" data-icon="chevron-left"><span data-icon="chevron-right"></span><span class="pit-headerbar__title">Display</span></div>
+                <div class="pit-wincontrols" data-icon="minus"><span data-icon="square"></span><span data-icon="x"></span></div>
+              </div>
+              <div class="pit-window__content">
+                <div class="pit-caption">QEMU Monitor</div>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Resolution</span><button class="pit-select">1280 × 800 <span data-icon="chevron-down"></span></button></div>
+                  <div class="pit-row"><span>Refresh rate</span><button class="pit-select">74.99 Hz <span data-icon="chevron-down"></span></button></div>
+                  <div class="pit-row"><span>Scale</span><button class="pit-select">100% <span data-icon="chevron-down"></span></button></div>
+                  <div class="pit-row"><span>Rotation</span><button class="pit-select">Normal <span data-icon="chevron-down"></span></button></div>
+                </div>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Night Light</span><label class="pit-switch"><input type="checkbox"><span></span></label></div>
+                  <div class="pit-row">
+                    <span>Color temperature</span>
+                    <span class="pit-row__grow" style="max-width:420px">
+                      <input class="pit-slider" type="range" value="52">
+                      <span class="pit-row__caps"><span>Less warm</span><span>More warm</span></span>
+                    </span>
+                  </div>
+                  <div class="pit-row"><span>Schedule</span><button class="pit-select">Never <span data-icon="chevron-down"></span></button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ------------------------------------------------ Keyboard -->
+    <section id="keyboard">
+      <header><h3>Keyboard</h3><p>Check rows, helper and caution copy, navigation rows, repeat sliders.</p></header>
+      <figure class="pattern">
+        <div class="pit-window pit" style="height:640px">
+          <div class="pit-window__body" style="height:100%">
+            <aside class="pit-sidebar" data-active="Keyboard"></aside>
+            <div class="pit-window__main">
+              <div class="pit-headerbar">
+                <div class="pit-headerbar__lead" data-icon="chevron-left"><span data-icon="chevron-right"></span><span class="pit-headerbar__title">Keyboard</span></div>
+                <div class="pit-wincontrols" data-icon="minus"><span data-icon="square"></span><span data-icon="x"></span></div>
+              </div>
+              <div class="pit-window__content">
+                <div class="pit-caption">Input method</div>
+                <div class="pit-card">
+                  <div class="pit-row"><span class="pit-row__lead"><span class="pit-tile pit-tile--gray" data-icon="command"></span>None</span><span class="pit-check--row" data-icon="check"></span></div>
+                </div>
+                <p class="pit-helper" style="margin:0">Applications started before the input method may need to be restarted.</p>
+                <div class="pit-caption">Shortcut key</div>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Ctrl</span><span class="pit-check--row" data-icon="check"></span></div>
+                  <div class="pit-row"><span>Command</span></div>
+                </div>
+                <p class="pit-caution" style="margin:0">Ctrl is the shortcut key and Alt switches windows. The shortcuts can be changed in Keyboard Shortcuts.</p>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Layout</span><span class="pit-row__trail">English (US) <span data-icon="chevron-right"></span></span></div>
+                  <div class="pit-row"><span>Keyboard Shortcuts</span><span class="pit-row__trail"><span data-icon="chevron-right"></span></span></div>
+                </div>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Key repeat</span><label class="pit-switch"><input type="checkbox" checked><span></span></label></div>
+                  <div class="pit-row"><span>Delay until repeat</span><input class="pit-slider" type="range" value="38" style="max-width:420px"></div>
+                  <div class="pit-row"><span>Repeat rate</span><input class="pit-slider" type="range" value="62" style="max-width:420px"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ------------------------------------------------ Appearance -->
+    <section id="appearance">
+      <header><h3>Appearance</h3><p>Visual pickers: theme cards, accent dots, navigation rows with icon tiles.</p></header>
+      <figure class="pattern">
+        <div class="pit-window pit" style="height:560px">
+          <div class="pit-window__body" style="height:100%">
+            <aside class="pit-sidebar" data-active="Appearance"></aside>
+            <div class="pit-window__main">
+              <div class="pit-headerbar">
+                <div class="pit-headerbar__lead" data-icon="chevron-left"><span data-icon="chevron-right"></span><span class="pit-headerbar__title">Appearance</span></div>
+                <div class="pit-wincontrols" data-icon="minus"><span data-icon="square"></span><span data-icon="x"></span></div>
+              </div>
+              <div class="pit-window__content">
+                <div class="pit-caption">Appearance</div>
+                <div class="pit-card">
+                  <div class="pit-row" data-picker style="gap:16px;justify-content:flex-start;padding:18px 20px">
+                    <button class="pit-option" aria-pressed="true">
+                      <span class="pit-option__preview"><span class="pit-option__bar"><i></i><i></i><i></i></span><span class="pit-option__canvas"><i></i><i></i></span></span>Light
+                    </button>
+                    <button class="pit-option pit-option--dark" aria-pressed="false">
+                      <span class="pit-option__preview"><span class="pit-option__bar"><i></i><i></i><i></i></span><span class="pit-option__canvas"><i></i><i></i></span></span>Dark
+                    </button>
+                    <button class="pit-option pit-option--auto" aria-pressed="false">
+                      <span class="pit-option__preview"><span class="pit-option__bar"><i></i><i></i><i></i></span><span class="pit-option__canvas"><i></i><i></i></span></span>Auto
+                    </button>
+                  </div>
+                </div>
+                <div class="pit-caption">Accent color</div>
+                <div class="pit-card">
+                  <div class="pit-row" data-picker style="gap:14px;justify-content:flex-start;padding:16px 20px">
+                    <button class="pit-dot" aria-pressed="true" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-red)" aria-pressed="false" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-green)" aria-pressed="false" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-purple)" aria-pressed="false" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-pink)" aria-pressed="false" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-orange)" aria-pressed="false" data-icon="check"></button>
+                    <button class="pit-dot" style="background:var(--pit-tile-gray)" aria-pressed="false" data-icon="check"></button>
+                  </div>
+                </div>
+                <div class="pit-card">
+                  <div class="pit-row"><span class="pit-row__lead"><span class="pit-tile pit-tile--orange" data-icon="type"></span>Fonts</span><span class="pit-row__trail"><span data-icon="chevron-right"></span></span></div>
+                  <div class="pit-row"><span class="pit-row__lead"><span class="pit-tile pit-tile--green" data-icon="grid"></span>Icon Theme</span><span class="pit-row__trail"><span data-icon="chevron-right"></span></span></div>
+                  <div class="pit-row"><span class="pit-row__lead"><span class="pit-tile" data-icon="pointer"></span>Cursor Style</span><span class="pit-row__trail"><span data-icon="chevron-right"></span></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ------------------------------------------------ Dock -->
+    <section id="dock">
+      <header><h3>Dock</h3><p>Position picker, captioned sliders, a full-width segmented control.</p></header>
+      <figure class="pattern">
+        <div class="pit-window pit" style="height:620px">
+          <div class="pit-window__body" style="height:100%">
+            <aside class="pit-sidebar" data-active="Dock"></aside>
+            <div class="pit-window__main">
+              <div class="pit-headerbar">
+                <div class="pit-headerbar__lead" data-icon="chevron-left"><span data-icon="chevron-right"></span><span class="pit-headerbar__title">Dock</span></div>
+                <div class="pit-wincontrols" data-icon="minus"><span data-icon="square"></span><span data-icon="x"></span></div>
+              </div>
+              <div class="pit-window__content">
+                <div class="pit-caption">Position on screen</div>
+                <div class="pit-card">
+                  <div class="pit-row" data-picker style="gap:16px;justify-content:flex-start;padding:18px 20px">
+                    <button class="pit-option pit-option--left" aria-pressed="false"><span class="pit-option__dock"><i></i><i></i><i></i></span>Left</button>
+                    <button class="pit-option" aria-pressed="true"><span class="pit-option__dock"><i></i><i></i><i></i></span>Bottom</button>
+                    <button class="pit-option pit-option--right" aria-pressed="false"><span class="pit-option__dock"><i></i><i></i><i></i></span>Right</button>
+                  </div>
+                </div>
+                <div class="pit-card">
+                  <div class="pit-row">
+                    <span>Size</span>
+                    <span class="pit-row__grow" style="max-width:420px">
+                      <input class="pit-slider" type="range" value="30">
+                      <span class="pit-row__caps"><span>Small</span><span>Huge</span></span>
+                    </span>
+                  </div>
+                  <div class="pit-row">
+                    <span>Glass effect</span>
+                    <span class="pit-row__grow" style="max-width:420px">
+                      <input class="pit-slider" type="range" value="50">
+                      <span class="pit-row__caps"><span>More clear</span><span>More tinted</span></span>
+                    </span>
+                  </div>
+                </div>
+                <div class="pit-caption">Display mode</div>
+                <div class="pit-card">
+                  <div class="pit-row" style="padding:14px 16px">
+                    <div class="pit-segmented" style="width:100%" role="tablist">
+                      <button role="tab" aria-selected="true">Always show</button>
+                      <button role="tab" aria-selected="false">Always hide</button>
+                      <button role="tab" aria-selected="false">Smart hide</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="pit-card">
+                  <div class="pit-row"><span>Hot Corners</span><span class="pit-row__trail"><span data-icon="chevron-right"></span></span></div>
+                  <div class="pit-row"><span>Minimized windows area</span><label class="pit-switch"><input type="checkbox" checked><span></span></label></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </section>
+
+    <!-- ------------------------------------------------ States -->
+    <section id="states">
+      <header>
+        <h3>Interaction states</h3>
+        <p>Hover and pressed are background shifts, never colour changes. Keyboard focus is always a 2px accent
+           ring with a 2px offset — tab through the controls above to see it.</p>
+      </header>
+      <div class="state-grid">
+        <div class="card" style="padding:20px">
+          <h4 style="margin:0 0 14px;font-size:14px">List row</h4>
+          <div class="pit" style="display:flex;flex-direction:column;gap:12px">
+            <div class="state-row"><span>Rest</span><div class="sample"><div class="pit-row">Natural scrolling</div></div></div>
+            <div class="state-row"><span>Hover</span><div class="sample"><div class="pit-row pit-row--hover">Natural scrolling</div></div></div>
+            <div class="state-row"><span>Pressed</span><div class="sample"><div class="pit-row pit-row--pressed">Natural scrolling</div></div></div>
+            <div class="state-row"><span>Focus</span><div class="sample"><div class="pit-row pit-row--focus">Natural scrolling</div></div></div>
+            <div class="state-row"><span>Disabled</span><div class="sample"><div class="pit-row pit-row--disabled">Natural scrolling</div></div></div>
+          </div>
+        </div>
+        <div class="card" style="padding:20px">
+          <h4 style="margin:0 0 14px;font-size:14px">Primary button</h4>
+          <div class="pit" style="display:flex;flex-direction:column;gap:12px">
+            <div class="state-row"><span>Rest</span><div class="sample"><button class="pit-btn pit-btn--primary">Connect</button></div></div>
+            <div class="state-row"><span>Hover</span><div class="sample"><button class="pit-btn pit-btn--primary" style="background:var(--pit-accent-hover)">Connect</button></div></div>
+            <div class="state-row"><span>Pressed</span><div class="sample"><button class="pit-btn pit-btn--primary" style="background:var(--pit-accent-hover);opacity:.86">Connect</button></div></div>
+            <div class="state-row"><span>Focus</span><div class="sample"><button class="pit-btn pit-btn--primary" style="outline:3px solid var(--pit-accent-soft)">Connect</button></div></div>
+            <div class="state-row"><span>Disabled</span><div class="sample"><button class="pit-btn" disabled>Connect</button></div></div>
+          </div>
+        </div>
+        <div class="card" style="padding:20px">
+          <h4 style="margin:0 0 14px;font-size:14px">State tokens</h4>
+          <div class="rows" id="rows-anatomy-like">
+            <div class="row"><div class="key">hover</div><div class="use">--pit-bg-hover · 100ms ease-out</div></div>
+            <div class="row"><div class="key">pressed</div><div class="use">--pit-bg-selected · instant</div></div>
+            <div class="row"><div class="key">focus</div><div class="use">2px --pit-accent ring, 2px offset</div></div>
+            <div class="row"><div class="key">disabled</div><div class="use">opacity 45%, pointer events off</div></div>
+            <div class="row"><div class="key">selected</div><div class="use">--pit-bg-selected + 500 weight</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Pitaloka · patterns assembled from the same component classes · see <code>README.md</code>.</footer>
+  </main>
+</div>
+
+<script src="assets/icons.js"></script>
+<script src="assets/patterns.js"></script>
+</body>
+</html>

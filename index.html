@@ -8,7 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="tokens/pitaloka-web.css">
+<link rel="stylesheet" href="assets/pitaloka-ui.css">
 <link rel="stylesheet" href="assets/site.css">
+<script src="assets/shell.js"></script>
 </head>
 <body>
 <div class="layout">
@@ -19,8 +21,12 @@
       <p><span id="meta-version">v1.0.0</span> · design tokens</p>
     </div>
     <nav class="nav">
-      <div class="nav-section">Foundations</div>
-      <a href="#overview"><span class="tile" style="background:var(--pit-tile-blue)"></span>Overview</a>
+      <div class="nav-section">Pages</div>
+      <a href="index.html" data-page="index.html"><span class="tile" style="background:var(--pit-tile-pink)"></span>Tokens</a>
+      <a href="components.html" data-page="components.html"><span class="tile" style="background:var(--pit-tile-blue)"></span>Components</a>
+      <a href="patterns.html" data-page="patterns.html"><span class="tile" style="background:var(--pit-tile-purple)"></span>Patterns</a>
+      <div class="nav-section">On this page</div>
+      <a href="#overview"><span class="tile" style="background:var(--pit-tile-cyan)"></span>Overview</a>
       <a href="#color"><span class="tile" style="background:var(--pit-tile-pink)"></span>Color</a>
       <a href="#type"><span class="tile" style="background:var(--pit-tile-orange)"></span>Typography</a>
       <div class="nav-section">Shape &amp; space</div>

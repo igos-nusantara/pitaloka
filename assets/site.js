@@ -9,32 +9,7 @@
     return n;
   };
 
-  /* ---------- theme ---------- */
-  const saved = localStorage.getItem('pit-theme') || 'light';
-  document.documentElement.dataset.theme = saved;
-  document.querySelectorAll('.segmented button').forEach((b) => {
-    b.setAttribute('aria-pressed', String(b.dataset.theme === saved));
-    b.addEventListener('click', () => {
-      document.documentElement.dataset.theme = b.dataset.theme;
-      localStorage.setItem('pit-theme', b.dataset.theme);
-      document.querySelectorAll('.segmented button').forEach((o) =>
-        o.setAttribute('aria-pressed', String(o === b))
-      );
-      renderColors();
-    });
-  });
-
-  /* ---------- copy ---------- */
-  const toast = el('div', 'toast');
-  document.body.appendChild(toast);
-  function copy(text, label) {
-    navigator.clipboard.writeText(text).then(() => {
-      toast.textContent = (label || 'Copied') + ' — ' + text;
-      toast.classList.add('show');
-      clearTimeout(copy.t);
-      copy.t = setTimeout(() => toast.classList.remove('show'), 1600);
-    });
-  }
+  window.addEventListener('pit-theme', () => renderColors());
 
   /* ---------- meta ---------- */
   $('#meta-name').textContent = T.$meta.name;
@@ -74,7 +49,7 @@
           `<div class="name">--pit-${name}</div>` +
           `<div class="val">${t.light} &nbsp;·&nbsp; ${t.dark}</div>` +
           `<div class="use">${t.use}</div>`;
-        b.addEventListener('click', () => copy(`var(--pit-${name})`, name));
+        b.addEventListener('click', () => window.pitCopy(`var(--pit-${name})`, name));
         grid.appendChild(b);
       });
       host.appendChild(grid);
@@ -200,7 +175,7 @@ deleteButton->setProperty("danger", true);`,
     pre.textContent = code;
   });
   document.querySelectorAll('.copy').forEach((btn) => {
-    btn.addEventListener('click', () => copy($('#snippet-' + btn.dataset.target).textContent, 'Snippet'));
+    btn.addEventListener('click', () => window.pitCopy($('#snippet-' + btn.dataset.target).textContent, 'Snippet'));
   });
 
   /* ---------- nav highlight ---------- */

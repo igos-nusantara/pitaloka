@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pitaloka — Components</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens/pitaloka-web.css">
+<link rel="stylesheet" href="assets/pitaloka-ui.css">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/shell.js"></script>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand"><h1>Pitaloka</h1><p>v1.0.0 · design system</p></div>
+    <nav class="nav">
+      <div class="nav-section">Pages</div>
+      <a href="index.html" data-page="index.html"><span class="tile" style="background:var(--pit-tile-pink)"></span>Tokens</a>
+      <a href="components.html" data-page="components.html"><span class="tile" style="background:var(--pit-tile-blue)"></span>Components</a>
+      <a href="patterns.html" data-page="patterns.html"><span class="tile" style="background:var(--pit-tile-purple)"></span>Patterns</a>
+      <div class="nav-section">On this page</div>
+      <a href="#g-controls"><span class="tile" style="background:var(--pit-tile-cyan)"></span>Controls</a>
+      <a href="#g-buttons-inputs"><span class="tile" style="background:var(--pit-tile-green)"></span>Buttons &amp; inputs</a>
+      <a href="#rows"><span class="tile" style="background:var(--pit-tile-orange)"></span>List rows</a>
+      <a href="#g-navigation-chrome"><span class="tile" style="background:var(--pit-tile-indigo)"></span>Navigation</a>
+      <a href="#g-feedback-overlays"><span class="tile" style="background:var(--pit-tile-red)"></span>Feedback</a>
+      <a href="#g-choice-decoration"><span class="tile" style="background:var(--pit-tile-gray)"></span>Choice</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="topbar">
+      <div class="where">Components</div>
+      <div class="segmented" role="group" aria-label="Theme">
+        <button data-theme="light">Light</button>
+        <button data-theme="dark">Dark</button>
+      </div>
+    </div>
+
+    <section id="intro">
+      <div class="hero" style="padding-bottom:0">
+        <div class="kicker">COMPONENTS</div>
+        <h2>The library, live.</h2>
+        <p>Every component below is real HTML styled by <code>assets/pitaloka-ui.css</code> — switches toggle,
+           sliders drag, pickers select. Each card shows the markup and the native widget it maps to in GTK 4 and Qt 6.</p>
+        <div class="banner" style="margin-top:24px">
+          Link <b>&nbsp;tokens/pitaloka-web.css&nbsp;</b> then <b>&nbsp;assets/pitaloka-ui.css&nbsp;</b>, wrap your markup in <b>&nbsp;.pit&nbsp;</b>, and the classes below work as-is.
+        </div>
+      </div>
+    </section>
+
+    <div id="gallery"></div>
+
+    <section id="rows">
+      <header>
+        <h3>List rows</h3>
+        <p>The workhorse of a settings window: a label on the left, exactly one control on the right,
+           grouped in a card with 16px-inset dividers.</p>
+      </header>
+      <div class="split">
+        <div>
+          <div class="pit-card pit" id="rows-card"></div>
+          <details class="spec__code" style="margin-top:16px">
+            <summary>HTML</summary>
+            <div class="code">
+              <header><span>List rows</span><button class="copy" id="rows-copy">copy</button></header>
+              <pre><code id="rows-code"></code></pre>
+            </div>
+          </details>
+        </div>
+        <div class="card" style="padding:24px">
+          <h4 style="margin:0 0 12px;font-size:14px">Row anatomy</h4>
+          <div class="rows" id="rows-anatomy"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Pitaloka · components built on the generated tokens · see <code>README.md</code>.
+    </footer>
+  </main>
+</div>
+
+<script src="assets/icons.js"></script>
+<script src="assets/components.js"></script>
+<script src="assets/gallery.js"></script>
+</body>
+</html>
